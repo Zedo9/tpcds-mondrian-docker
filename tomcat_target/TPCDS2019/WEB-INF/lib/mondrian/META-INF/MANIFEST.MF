@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.7.1
+Created-By: 1.5.0_16-b02 (Sun Microsystems Inc.)
+Built-By: buildguy
+
+Name: mondrian.olap
+Implementation-Title: mondrian
+Implementation-Version: 3.2.0.13583
+Implementation-Vendor: Pentaho
+

@@ -1,0 +1,706 @@
+SqlMemberSource.getMemberChildren: executing sql [
+select 
+    `time_by_day`.`the_year` as `c0`
+from 
+    `time_by_day` as `time_by_day`
+group by 
+    `time_by_day`.`the_year`
+order by 
+    `time_by_day`.`the_year` ASC
+], exec 234 ms, exec+fetch 234 ms, 2 rows
+SqlTupleReader.readTuples [[Time].[Year]]: executing sql [
+select 
+    `time_by_day`.`the_year` as `c0`
+from 
+    `time_by_day` as `time_by_day`
+group by 
+    `time_by_day`.`the_year`
+order by 
+    `time_by_day`.`the_year` ASC
+], exec 16 ms, exec+fetch 16 ms, 1 rows
+SqlTupleReader.readTuples [[Time].[Year]]: executing sql [
+select 
+    `time_by_day`.`the_year` as `c0`
+from 
+    `time_by_day` as `time_by_day`
+group by 
+    `time_by_day`.`the_year`
+order by 
+    `time_by_day`.`the_year` ASC
+], exec 0 ms, exec+fetch 0 ms, 1 rows
+SqlMemberSource.getMemberChildren: executing sql [
+select 
+    `time_by_day`.`the_year` as `c0`
+from 
+    `time_by_day` as `time_by_day`
+group by 
+    `time_by_day`.`the_year`
+order by 
+    `time_by_day`.`the_year` ASC
+], exec 0 ms, exec+fetch 0 ms, 2 rows
+SqlTupleReader.readTuples [[Time].[Year]]: executing sql [
+select 
+    `time_by_day`.`the_year` as `c0`
+from 
+    `time_by_day` as `time_by_day`
+group by 
+    `time_by_day`.`the_year`
+order by 
+    `time_by_day`.`the_year` ASC
+], exec 0 ms, exec+fetch 0 ms, 1 rows
+SqlMemberSource.getMemberChildren: executing sql [
+select 
+    `store`.`store_country` as `c0`
+from 
+    `store` as `store`
+where 
+    UCASE(`store`.`store_country`) = UCASE('USA')
+group by 
+    `store`.`store_country`
+order by 
+    `store`.`store_country` ASC
+], exec 78 ms, exec+fetch 78 ms, 1 rows
+SqlMemberSource.getMemberChildren: executing sql [
+select 
+    `store`.`store_state` as `c0`
+from 
+    `store` as `store`
+where 
+    `store`.`store_country` = 'USA' and 
+    UCASE(`store`.`store_state`) = UCASE('CA')
+group by 
+    `store`.`store_state`
+order by 
+    `store`.`store_state` ASC
+], exec 0 ms, exec+fetch 0 ms, 1 rows
+SqlMemberSource.getMemberChildren: executing sql [
+select 
+    `store`.`store_city` as `c0`
+from 
+    `store` as `store`
+where 
+    `store`.`store_state` = 'CA' and 
+    UCASE(`store`.`store_city`) = UCASE('Los Angeles')
+group by 
+    `store`.`store_city`
+order by 
+    `store`.`store_city` ASC
+], exec 0 ms, exec+fetch 0 ms, 1 rows
+SqlMemberSource.getMemberChildren: executing sql [
+select 
+    `customer`.`country` as `c0`
+from 
+    `customer` as `customer`
+where 
+    UCASE(`customer`.`country`) = UCASE('USA')
+group by 
+    `customer`.`country`
+order by 
+    `customer`.`country` ASC
+], exec 125 ms, exec+fetch 125 ms, 1 rows
+SqlMemberSource.getMemberChildren: executing sql [
+select 
+    `customer`.`state_province` as `c0`
+from 
+    `customer` as `customer`
+where 
+    `customer`.`country` = 'USA' and 
+    UCASE(`customer`.`state_province`) = UCASE('CA')
+group by 
+    `customer`.`state_province`
+order by 
+    `customer`.`state_province` ASC
+], exec 78 ms, exec+fetch 78 ms, 1 rows
+SqlMemberSource.getMemberChildren: executing sql [
+select 
+    `customer`.`city` as `c0`
+from 
+    `customer` as `customer`
+where 
+    `customer`.`state_province` = 'CA' and 
+    UCASE(`customer`.`city`) = UCASE('Los Angeles')
+group by 
+    `customer`.`city`
+order by 
+    `customer`.`city` ASC
+], exec 47 ms, exec+fetch 47 ms, 1 rows
+AggStar.FactTable.makeNumberOfRows: executing sql [
+select 
+    count(*) as `c0`
+from 
+    `agg_c_10_sales_fact_1997` as `agg_c_10_sales_fact_1997`
+], exec 16 ms, exec+fetch 16 ms, 1 rows
+AggStar.FactTable.makeNumberOfRows: executing sql [
+select 
+    count(*) as `c0`
+from 
+    `agg_l_03_sales_fact_1997` as `agg_l_03_sales_fact_1997`
+], exec 0 ms, exec+fetch 0 ms, 1 rows
+AggStar.FactTable.makeNumberOfRows: executing sql [
+select 
+    count(*) as `c0`
+from 
+    `agg_c_14_sales_fact_1997` as `agg_c_14_sales_fact_1997`
+], exec 31 ms, exec+fetch 31 ms, 1 rows
+AggStar.FactTable.makeNumberOfRows: executing sql [
+select 
+    count(*) as `c0`
+from 
+    `agg_l_04_sales_fact_1997` as `agg_l_04_sales_fact_1997`
+], exec 15 ms, exec+fetch 15 ms, 1 rows
+AggStar.FactTable.makeNumberOfRows: executing sql [
+select 
+    count(*) as `c0`
+from 
+    `agg_pl_01_sales_fact_1997` as `agg_pl_01_sales_fact_1997`
+], exec 31 ms, exec+fetch 31 ms, 1 rows
+AggStar.FactTable.makeNumberOfRows: executing sql [
+select 
+    count(*) as `c0`
+from 
+    `agg_g_ms_pcat_sales_fact_1997` as `agg_g_ms_pcat_sales_fact_1997`
+], exec 0 ms, exec+fetch 0 ms, 1 rows
+AggStar.FactTable.makeNumberOfRows: executing sql [
+select 
+    count(*) as `c0`
+from 
+    `agg_ll_01_sales_fact_1997` as `agg_ll_01_sales_fact_1997`
+], exec 31 ms, exec+fetch 31 ms, 1 rows
+AggStar.FactTable.makeNumberOfRows: executing sql [
+select 
+    count(*) as `c0`
+from 
+    `agg_l_05_sales_fact_1997` as `agg_l_05_sales_fact_1997`
+], exec 32 ms, exec+fetch 32 ms, 1 rows
+SqlTupleReader.readTuples [[Time].[Year]]: executing sql [
+select 
+    `time_by_day`.`the_year` as `c0`
+from 
+    `time_by_day` as `time_by_day`
+group by 
+    `time_by_day`.`the_year`
+order by 
+    `time_by_day`.`the_year` ASC
+], exec 0 ms, exec+fetch 0 ms, 1 rows
+Segment.load: executing sql [
+select 
+    `agg_c_10_sales_fact_1997`.`the_year` as `c0`, 
+    sum(`agg_c_10_sales_fact_1997`.`unit_sales`) as `m0`, 
+    sum(`agg_c_10_sales_fact_1997`.`store_cost`) as `m1`, 
+    sum(`agg_c_10_sales_fact_1997`.`store_sales`) as `m2`
+from 
+    `agg_c_10_sales_fact_1997` as `agg_c_10_sales_fact_1997`
+where 
+    `agg_c_10_sales_fact_1997`.`the_year` = 1997
+group by 
+    `agg_c_10_sales_fact_1997`.`the_year`
+], exec 0 ms, exec+fetch 0 ms, 1 rows
+SqlMemberSource.getMemberChildren: executing sql [
+select 
+    `promotion`.`media_type` as `c0`
+from 
+    `promotion` as `promotion`
+group by 
+    `promotion`.`media_type`
+order by 
+    `promotion`.`media_type` ASC
+], exec 31 ms, exec+fetch 31 ms, 14 rows
+RolapStar.Column.getCardinality: executing sql [
+select 
+    count(*) as `c0`
+from 
+    (select distinct 
+    `promotion`.`media_type` as `c0`
+from 
+    `promotion` as `promotion`
+) as `init`
+], exec 32 ms, exec+fetch 32 ms, 1 rows
+Segment.load: executing sql [
+select 
+    `agg_c_14_sales_fact_1997`.`the_year` as `c0`, 
+    `promotion`.`media_type` as `c1`, 
+    sum(`agg_c_14_sales_fact_1997`.`unit_sales`) as `m0`, 
+    sum(`agg_c_14_sales_fact_1997`.`store_cost`) as `m1`, 
+    sum(`agg_c_14_sales_fact_1997`.`store_sales`) as `m2`
+from 
+    `agg_c_14_sales_fact_1997` as `agg_c_14_sales_fact_1997`, 
+    `promotion` as `promotion`
+where 
+    `agg_c_14_sales_fact_1997`.`the_year` = 1997 and 
+    `agg_c_14_sales_fact_1997`.`promotion_id` = `promotion`.`promotion_id`
+group by 
+    `agg_c_14_sales_fact_1997`.`the_year`, 
+    `promotion`.`media_type`
+], exec 795 ms, exec+fetch 795 ms, 14 rows
+SqlMemberSource.getMemberChildren: executing sql [
+select 
+    `product_class`.`product_family` as `c0`
+from 
+    `product` as `product`, 
+    `product_class` as `product_class`
+where 
+    `product`.`product_class_id` = `product_class`.`product_class_id`
+group by 
+    `product_class`.`product_family`
+order by 
+    `product_class`.`product_family` ASC
+], exec 31 ms, exec+fetch 31 ms, 3 rows
+RolapStar.Column.getCardinality: executing sql [
+select 
+    count(*) as `c0`
+from 
+    (select distinct 
+    `product_class`.`product_family` as `c0`
+from 
+    `product_class` as `product_class`
+) as `init`
+], exec 0 ms, exec+fetch 0 ms, 1 rows
+Segment.load: executing sql [
+select 
+    `agg_c_14_sales_fact_1997`.`the_year` as `c0`, 
+    `product_class`.`product_family` as `c1`, 
+    `promotion`.`media_type` as `c2`, 
+    sum(`agg_c_14_sales_fact_1997`.`unit_sales`) as `m0`, 
+    sum(`agg_c_14_sales_fact_1997`.`store_cost`) as `m1`, 
+    sum(`agg_c_14_sales_fact_1997`.`store_sales`) as `m2`
+from 
+    `agg_c_14_sales_fact_1997` as `agg_c_14_sales_fact_1997`, 
+    `product_class` as `product_class`, 
+    `product` as `product`, 
+    `promotion` as `promotion`
+where 
+    `agg_c_14_sales_fact_1997`.`the_year` = 1997 and 
+    `agg_c_14_sales_fact_1997`.`product_id` = `product`.`product_id` and 
+    `product`.`product_class_id` = `product_class`.`product_class_id` and 
+    `agg_c_14_sales_fact_1997`.`promotion_id` = `promotion`.`promotion_id` and 
+    `promotion`.`media_type` = 'Bulk Mail'
+group by 
+    `agg_c_14_sales_fact_1997`.`the_year`, 
+    `product_class`.`product_family`, 
+    `promotion`.`media_type`
+], exec 141 ms, exec+fetch 141 ms, 3 rows
+SqlMemberSource.getMemberChildren: executing sql [
+select 
+    `product_class`.`product_department` as `c0`
+from 
+    `product` as `product`, 
+    `product_class` as `product_class`
+where 
+    `product`.`product_class_id` = `product_class`.`product_class_id` and 
+    `product_class`.`product_family` = 'Drink'
+group by 
+    `product_class`.`product_department`
+order by 
+    `product_class`.`product_department` ASC
+], exec 0 ms, exec+fetch 0 ms, 3 rows
+RolapStar.Column.getCardinality: executing sql [
+select 
+    count(*) as `c0`
+from 
+    (select distinct 
+    `product_class`.`product_department` as `c0`
+from 
+    `product_class` as `product_class`
+) as `init`
+], exec 0 ms, exec+fetch 0 ms, 1 rows
+Segment.load: executing sql [
+select 
+    `agg_c_14_sales_fact_1997`.`the_year` as `c0`, 
+    `product_class`.`product_family` as `c1`, 
+    `product_class`.`product_department` as `c2`, 
+    `promotion`.`media_type` as `c3`, 
+    sum(`agg_c_14_sales_fact_1997`.`unit_sales`) as `m0`, 
+    sum(`agg_c_14_sales_fact_1997`.`store_cost`) as `m1`, 
+    sum(`agg_c_14_sales_fact_1997`.`store_sales`) as `m2`
+from 
+    `agg_c_14_sales_fact_1997` as `agg_c_14_sales_fact_1997`, 
+    `product_class` as `product_class`, 
+    `product` as `product`, 
+    `promotion` as `promotion`
+where 
+    `agg_c_14_sales_fact_1997`.`the_year` = 1997 and 
+    `agg_c_14_sales_fact_1997`.`product_id` = `product`.`product_id` and 
+    `product`.`product_class_id` = `product_class`.`product_class_id` and 
+    `product_class`.`product_family` = 'Drink' and 
+    `product_class`.`product_department` in ('Alcoholic Beverages', 'Beverages', 'Dairy') and 
+    `agg_c_14_sales_fact_1997`.`promotion_id` = `promotion`.`promotion_id` and 
+    `promotion`.`media_type` = 'Bulk Mail'
+group by 
+    `agg_c_14_sales_fact_1997`.`the_year`, 
+    `product_class`.`product_family`, 
+    `product_class`.`product_department`, 
+    `promotion`.`media_type`
+], exec 31 ms, exec+fetch 31 ms, 3 rows
+SqlMemberSource.getMemberChildren: executing sql [
+select 
+    `product_class`.`product_category` as `c0`
+from 
+    `product` as `product`, 
+    `product_class` as `product_class`
+where 
+    `product`.`product_class_id` = `product_class`.`product_class_id` and 
+    `product_class`.`product_department` = 'Alcoholic Beverages' and 
+    `product_class`.`product_family` = 'Drink'
+group by 
+    `product_class`.`product_category`
+order by 
+    `product_class`.`product_category` ASC
+], exec 16 ms, exec+fetch 16 ms, 1 rows
+Segment.load: executing sql [
+select 
+    `agg_c_14_sales_fact_1997`.`the_year` as `c0`, 
+    `product_class`.`product_family` as `c1`, 
+    `product_class`.`product_department` as `c2`, 
+    `product_class`.`product_category` as `c3`, 
+    `promotion`.`media_type` as `c4`, 
+    sum(`agg_c_14_sales_fact_1997`.`unit_sales`) as `m0`, 
+    sum(`agg_c_14_sales_fact_1997`.`store_cost`) as `m1`, 
+    sum(`agg_c_14_sales_fact_1997`.`store_sales`) as `m2`
+from 
+    `agg_c_14_sales_fact_1997` as `agg_c_14_sales_fact_1997`, 
+    `product_class` as `product_class`, 
+    `product` as `product`, 
+    `promotion` as `promotion`
+where 
+    `agg_c_14_sales_fact_1997`.`the_year` = 1997 and 
+    `agg_c_14_sales_fact_1997`.`product_id` = `product`.`product_id` and 
+    `product`.`product_class_id` = `product_class`.`product_class_id` and 
+    `product_class`.`product_family` = 'Drink' and 
+    `product_class`.`product_department` = 'Alcoholic Beverages' and 
+    `product_class`.`product_category` = 'Beer and Wine' and 
+    `agg_c_14_sales_fact_1997`.`promotion_id` = `promotion`.`promotion_id` and 
+    `promotion`.`media_type` = 'Bulk Mail'
+group by 
+    `agg_c_14_sales_fact_1997`.`the_year`, 
+    `product_class`.`product_family`, 
+    `product_class`.`product_department`, 
+    `product_class`.`product_category`, 
+    `promotion`.`media_type`
+], exec 109 ms, exec+fetch 109 ms, 1 rows
+SqlTupleReader.readTuples [[Store].[Store Country]]: executing sql [
+select 
+    `store`.`store_country` as `c0`
+from 
+    `store` as `store`
+group by 
+    `store`.`store_country`
+order by 
+    `store`.`store_country` ASC
+], exec 0 ms, exec+fetch 0 ms, 1 rows
+SqlTupleReader.readTuples [[Store].[Store State]]: executing sql [
+select 
+    `store`.`store_country` as `c0`, 
+    `store`.`store_state` as `c1`
+from 
+    `store` as `store`
+group by 
+    `store`.`store_country`, 
+    `store`.`store_state`
+order by 
+    `store`.`store_country` ASC, 
+    `store`.`store_state` ASC
+], exec 16 ms, exec+fetch 16 ms, 1 rows
+SqlTupleReader.readTuples [[Store].[Store City]]: executing sql [
+select 
+    `store`.`store_country` as `c0`, 
+    `store`.`store_state` as `c1`, 
+    `store`.`store_city` as `c2`
+from 
+    `store` as `store`
+group by 
+    `store`.`store_country`, 
+    `store`.`store_state`, 
+    `store`.`store_city`
+order by 
+    `store`.`store_country` ASC, 
+    `store`.`store_state` ASC, 
+    `store`.`store_city` ASC
+], exec 0 ms, exec+fetch 0 ms, 1 rows
+SqlTupleReader.readTuples [[Store].[Store Name]]: executing sql [
+select 
+    `store`.`store_country` as `c0`, 
+    `store`.`store_state` as `c1`, 
+    `store`.`store_city` as `c2`, 
+    `store`.`store_name` as `c3`, 
+    `store`.`store_type` as `c4`, 
+    `store`.`store_manager` as `c5`, 
+    `store`.`store_sqft` as `c6`, 
+    `store`.`grocery_sqft` as `c7`, 
+    `store`.`frozen_sqft` as `c8`, 
+    `store`.`meat_sqft` as `c9`, 
+    `store`.`coffee_bar` as `c10`, 
+    `store`.`store_street_address` as `c11`
+from 
+    `store` as `store`
+group by 
+    `store`.`store_country`, 
+    `store`.`store_state`, 
+    `store`.`store_city`, 
+    `store`.`store_name`, 
+    `store`.`store_type`, 
+    `store`.`store_manager`, 
+    `store`.`store_sqft`, 
+    `store`.`grocery_sqft`, 
+    `store`.`frozen_sqft`, 
+    `store`.`meat_sqft`, 
+    `store`.`coffee_bar`, 
+    `store`.`store_street_address`
+order by 
+    `store`.`store_country` ASC, 
+    `store`.`store_state` ASC, 
+    `store`.`store_city` ASC, 
+    `store`.`store_name` ASC
+], exec 78 ms, exec+fetch 93 ms, 1 rows
+Segment.load: executing sql [
+select 
+    `d0` as `c0`, 
+    count(`m0`) as `c1`
+from 
+    (select distinct 
+    `time_by_day`.`the_year` as `d0`, 
+    `sales_fact_1997`.`customer_id` as `m0`
+from 
+    `time_by_day` as `time_by_day`, 
+    `sales_fact_1997` as `sales_fact_1997`
+where 
+    `sales_fact_1997`.`time_id` = `time_by_day`.`time_id` and 
+    `time_by_day`.`the_year` = 1997
+) as `dummyname`
+group by 
+    `d0`
+], exec 405 ms, exec+fetch 405 ms, 1 rows
+Segment.load: executing sql [
+select 
+    `time_by_day`.`the_year` as `c0`, 
+    count(`sales_fact_1997`.`product_id`) as `m0`, 
+    sum(Iif("sales_fact_1997"."promotion_id" = 0, 0, "sales_fact_1997"."store_sales")) as `m1`
+from 
+    `time_by_day` as `time_by_day`, 
+    `sales_fact_1997` as `sales_fact_1997`
+where 
+    `sales_fact_1997`.`time_id` = `time_by_day`.`time_id` and 
+    `time_by_day`.`the_year` = 1997
+group by 
+    `time_by_day`.`the_year`
+], exec 624 ms, exec+fetch 624 ms, 1 rows
+RolapStar.Column.getCardinality: executing sql [
+select 
+    count(*) as `c0`
+from 
+    (select distinct 
+    `store`.`store_country` as `c0`
+from 
+    `store` as `store`
+) as `init`
+], exec 0 ms, exec+fetch 0 ms, 1 rows
+Segment.load: executing sql [
+select 
+    `d0` as `c0`, 
+    `d1` as `c1`, 
+    count(`m0`) as `c2`
+from 
+    (select distinct 
+    `store`.`store_country` as `d0`, 
+    `time_by_day`.`the_year` as `d1`, 
+    `sales_fact_1997`.`customer_id` as `m0`
+from 
+    `store` as `store`, 
+    `sales_fact_1997` as `sales_fact_1997`, 
+    `time_by_day` as `time_by_day`
+where 
+    `sales_fact_1997`.`store_id` = `store`.`store_id` and 
+    `sales_fact_1997`.`time_id` = `time_by_day`.`time_id` and 
+    `time_by_day`.`the_year` = 1997
+) as `dummyname`
+group by 
+    `d0`, 
+    `d1`
+], exec 422 ms, exec+fetch 422 ms, 1 rows
+Segment.load: executing sql [
+select 
+    `store`.`store_country` as `c0`, 
+    `time_by_day`.`the_year` as `c1`, 
+    sum(`sales_fact_1997`.`unit_sales`) as `m0`, 
+    sum(`sales_fact_1997`.`store_cost`) as `m1`, 
+    sum(`sales_fact_1997`.`store_sales`) as `m2`, 
+    count(`sales_fact_1997`.`product_id`) as `m3`, 
+    sum(Iif("sales_fact_1997"."promotion_id" = 0, 0, "sales_fact_1997"."store_sales")) as `m4`
+from 
+    `store` as `store`, 
+    `sales_fact_1997` as `sales_fact_1997`, 
+    `time_by_day` as `time_by_day`
+where 
+    `sales_fact_1997`.`store_id` = `store`.`store_id` and 
+    `sales_fact_1997`.`time_id` = `time_by_day`.`time_id` and 
+    `time_by_day`.`the_year` = 1997
+group by 
+    `store`.`store_country`, 
+    `time_by_day`.`the_year`
+], exec 670 ms, exec+fetch 670 ms, 1 rows
+RolapStar.Column.getCardinality: executing sql [
+select 
+    count(*) as `c0`
+from 
+    (select distinct 
+    `store`.`store_name` as `c0`
+from 
+    `store` as `store`
+) as `init`
+], exec 0 ms, exec+fetch 0 ms, 1 rows
+Segment.load: executing sql [
+select 
+    `d0` as `c0`, 
+    `d1` as `c1`, 
+    count(`m0`) as `c2`
+from 
+    (select distinct 
+    `store`.`store_name` as `d0`, 
+    `time_by_day`.`the_year` as `d1`, 
+    `sales_fact_1997`.`customer_id` as `m0`
+from 
+    `store` as `store`, 
+    `sales_fact_1997` as `sales_fact_1997`, 
+    `time_by_day` as `time_by_day`
+where 
+    `sales_fact_1997`.`store_id` = `store`.`store_id` and 
+    `sales_fact_1997`.`time_id` = `time_by_day`.`time_id` and 
+    `time_by_day`.`the_year` = 1997
+) as `dummyname`
+group by 
+    `d0`, 
+    `d1`
+], exec 297 ms, exec+fetch 297 ms, 13 rows
+Segment.load: executing sql [
+select 
+    `store`.`store_name` as `c0`, 
+    `time_by_day`.`the_year` as `c1`, 
+    sum(`sales_fact_1997`.`unit_sales`) as `m0`, 
+    sum(`sales_fact_1997`.`store_cost`) as `m1`, 
+    sum(`sales_fact_1997`.`store_sales`) as `m2`, 
+    count(`sales_fact_1997`.`product_id`) as `m3`, 
+    sum(Iif("sales_fact_1997"."promotion_id" = 0, 0, "sales_fact_1997"."store_sales")) as `m4`
+from 
+    `store` as `store`, 
+    `sales_fact_1997` as `sales_fact_1997`, 
+    `time_by_day` as `time_by_day`
+where 
+    `sales_fact_1997`.`store_id` = `store`.`store_id` and 
+    `sales_fact_1997`.`time_id` = `time_by_day`.`time_id` and 
+    `time_by_day`.`the_year` = 1997
+group by 
+    `store`.`store_name`, 
+    `time_by_day`.`the_year`
+], exec 593 ms, exec+fetch 593 ms, 13 rows
+RolapStar.Column.getCardinality: executing sql [
+select 
+    count(*) as `c0`
+from 
+    (select distinct 
+    `store`.`store_state` as `c0`
+from 
+    `store` as `store`
+) as `init`
+], exec 0 ms, exec+fetch 0 ms, 1 rows
+Segment.load: executing sql [
+select 
+    `d0` as `c0`, 
+    `d1` as `c1`, 
+    count(`m0`) as `c2`
+from 
+    (select distinct 
+    `store`.`store_state` as `d0`, 
+    `time_by_day`.`the_year` as `d1`, 
+    `sales_fact_1997`.`customer_id` as `m0`
+from 
+    `store` as `store`, 
+    `sales_fact_1997` as `sales_fact_1997`, 
+    `time_by_day` as `time_by_day`
+where 
+    `sales_fact_1997`.`store_id` = `store`.`store_id` and 
+    `sales_fact_1997`.`time_id` = `time_by_day`.`time_id` and 
+    `time_by_day`.`the_year` = 1997
+) as `dummyname`
+group by 
+    `d0`, 
+    `d1`
+], exec 280 ms, exec+fetch 280 ms, 3 rows
+Segment.load: executing sql [
+select 
+    `store`.`store_state` as `c0`, 
+    `time_by_day`.`the_year` as `c1`, 
+    sum(`sales_fact_1997`.`unit_sales`) as `m0`, 
+    sum(`sales_fact_1997`.`store_cost`) as `m1`, 
+    sum(`sales_fact_1997`.`store_sales`) as `m2`, 
+    count(`sales_fact_1997`.`product_id`) as `m3`, 
+    sum(Iif("sales_fact_1997"."promotion_id" = 0, 0, "sales_fact_1997"."store_sales")) as `m4`
+from 
+    `store` as `store`, 
+    `sales_fact_1997` as `sales_fact_1997`, 
+    `time_by_day` as `time_by_day`
+where 
+    `sales_fact_1997`.`store_id` = `store`.`store_id` and 
+    `sales_fact_1997`.`time_id` = `time_by_day`.`time_id` and 
+    `time_by_day`.`the_year` = 1997
+group by 
+    `store`.`store_state`, 
+    `time_by_day`.`the_year`
+], exec 609 ms, exec+fetch 609 ms, 3 rows
+RolapStar.Column.getCardinality: executing sql [
+select 
+    count(*) as `c0`
+from 
+    (select distinct 
+    `store`.`store_city` as `c0`
+from 
+    `store` as `store`
+) as `init`
+], exec 0 ms, exec+fetch 0 ms, 1 rows
+Segment.load: executing sql [
+select 
+    `d0` as `c0`, 
+    `d1` as `c1`, 
+    `d2` as `c2`, 
+    count(`m0`) as `c3`
+from 
+    (select distinct 
+    `store`.`store_state` as `d0`, 
+    `store`.`store_city` as `d1`, 
+    `time_by_day`.`the_year` as `d2`, 
+    `sales_fact_1997`.`customer_id` as `m0`
+from 
+    `store` as `store`, 
+    `sales_fact_1997` as `sales_fact_1997`, 
+    `time_by_day` as `time_by_day`
+where 
+    `sales_fact_1997`.`store_id` = `store`.`store_id` and 
+    `sales_fact_1997`.`time_id` = `time_by_day`.`time_id` and 
+    `time_by_day`.`the_year` = 1997
+) as `dummyname`
+group by 
+    `d0`, 
+    `d1`, 
+    `d2`
+], exec 390 ms, exec+fetch 390 ms, 13 rows
+Segment.load: executing sql [
+select 
+    `store`.`store_state` as `c0`, 
+    `store`.`store_city` as `c1`, 
+    `time_by_day`.`the_year` as `c2`, 
+    sum(`sales_fact_1997`.`unit_sales`) as `m0`, 
+    sum(`sales_fact_1997`.`store_cost`) as `m1`, 
+    sum(`sales_fact_1997`.`store_sales`) as `m2`, 
+    count(`sales_fact_1997`.`product_id`) as `m3`, 
+    sum(Iif("sales_fact_1997"."promotion_id" = 0, 0, "sales_fact_1997"."store_sales")) as `m4`
+from 
+    `store` as `store`, 
+    `sales_fact_1997` as `sales_fact_1997`, 
+    `time_by_day` as `time_by_day`
+where 
+    `sales_fact_1997`.`store_id` = `store`.`store_id` and 
+    `sales_fact_1997`.`time_id` = `time_by_day`.`time_id` and 
+    `time_by_day`.`the_year` = 1997
+group by 
+    `store`.`store_state`, 
+    `store`.`store_city`, 
+    `time_by_day`.`the_year`
+], exec 624 ms, exec+fetch 624 ms, 13 rows

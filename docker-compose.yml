@@ -1,0 +1,26 @@
+version: "3"
+
+services:
+  oracledb:
+    image: "gvenzl/oracle-xe:${TAG:-18}"
+    container_name: oracledb
+    ports:
+      - 1521:1521
+    env_file:
+      - ./oracle.env
+    volumes:
+      - oracledb-volume:/u01/app/oracle/oradata
+      - ./data:/data
+  tomcat:
+    depends_on:
+      - oracledb
+    image: tomcat:7.0-jdk8-openjdk
+    container_name: tomcat
+    volumes:
+      - ./tomcat_target:/usr/local/tomcat/webapps/
+      - ./tomcat_lib/ojdbc14.jar:/usr/local/tomcat/lib/ojdbc14.jar
+      - ./tomcat_lib/xalan-2.7.1.jar:/usr/local/tomcat/lib/xalan-2.7.1.jar
+    ports:
+      - "8080:8080"
+volumes:
+  oracledb-volume:

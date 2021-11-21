@@ -1,0 +1,111 @@
+
+   <!--......................................................___CUBE____1___..............................................................-->
+<!--Salma Ben Ali -->
+<!--Rim Moussa  -->
+<Schema name="TPCDS">
+<Cube name="Cube1" cache="true" enabled="true">
+
+	<Table name="STORE_RETURNS" schema="TPCDS">
+	</Table>
+	
+	<Dimension type="TimeDimension" foreignKey="SR_RETURNED_DATE_SK" name="Returned Date">
+      <Hierarchy name="All Returned Dates" hasAll="false" primaryKey="D_DATE_SK">
+	    <Table name="DATE_DIM" schema="TPCDS">
+        </Table>
+        <Level name="time" table="DATE_DIM" column="D_YEAR" type="Numeric" uniqueMembers="true" levelType="TimeYears" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension> 
+	
+    <Dimension type="StandardDimension" foreignKey="SR_STORE_SK" name="Store">
+      <Hierarchy name="ALL Stores" hasAll="false" primaryKey="S_STORE_SK">
+	  <Table name="STORE" schema="TPCDS">
+        </Table>
+        <Level name="state" table="STORE" column="S_STATE" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension> 
+	
+	<Dimension type="StandardDimension" foreignKey="SR_CUSTOMER_SK" name="Customer">
+      <Hierarchy name="customer_id" hasAll="false" primaryKey="C_CUSTOMER_SK">
+	  <Table name="CUSTOMER" schema="TPCDS">
+        </Table>
+        <Level name="customer_id" table="CUSTOMER" column="C_CUSTOMER_ID" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension> 
+	
+	
+    <Measure name="SUM RETURN AMT" column="SR_RETURN_AMT" aggregator="sum" visible="true">
+    </Measure>
+	<Measure name="SUM FEE" column="SR_FEE" aggregator="sum" visible="true">
+    </Measure>
+	<Measure name="SUM REFUNDED CASH" column="SR_REFUNDED_CASH" aggregator="sum" visible="true">
+    </Measure>
+	<Measure name="SUM TAX" column="SR_RETURN_AMT_INC_TAX" aggregator="sum" visible="true">
+    </Measure>
+	<Measure name="SUM REVERSED CHARGE" column="SR_REVERSED_CHARGE" aggregator="sum" visible="true">
+    </Measure>
+	<Measure name="SUM STORE CREDIT" column="SR_STORE_CREDIT" aggregator="sum" visible="true">
+    </Measure>
+	<Measure name="SUM RETURN TAX" column="SR_RETURN_TAX" aggregator="sum" visible="true">
+    </Measure>
+	<Measure name="Count RETURN AMT" column="SR_RETURN_AMT" aggregator="count" visible="true">
+    </Measure>
+    <CalculatedMember name="Avg RETURN AMT" formula="Measures.[SUM RETURN AMT] / Measures.[Count RETURN AMT]" dimension="Measures" visible="true">
+    </CalculatedMember>
+	<CalculatedMember name="Avg FEE" formula="Measures.[SUM FEE] / Measures.[Count RETURN AMT]" dimension="Measures" visible="true">
+    </CalculatedMember>
+	<CalculatedMember name="Avg REFUNDED CASH" formula="Measures.[SUM REFUNDED CASH] / Measures.[Count RETURN AMT]" dimension="Measures" visible="true">
+    </CalculatedMember>
+	<CalculatedMember name="Avg TAX" formula="Measures.[SUM TAX] / Measures.[Count RETURN AMT]" dimension="Measures" visible="true">
+    </CalculatedMember>
+	<CalculatedMember name="Avg REVERSED CHARGE" formula="Measures.[SUM REVERSED CHARGE] / Measures.[Count RETURN AMT]" dimension="Measures" visible="true">
+    </CalculatedMember>
+	<CalculatedMember name="Avg STORE CREDIT" formula="Measures.[SUM STORE CREDIT] / Measures.[Count RETURN AMT]" dimension="Measures" visible="true">
+    </CalculatedMember>
+	<CalculatedMember name="Avg RETURN TAX" formula="Measures.[SUM RETURN TAX] / Measures.[Count RETURN AMT]" dimension="Measures" visible="true">
+    </CalculatedMember>
+</Cube>
+
+  
+ </Schema>
+<!--
+define COUNTY = random(1, rowcount("active_counties", "store"), uniform);
+define YEAR = random(1998, 2002, uniform);
+define AGG_FIELD = text({"SR_RETURN_AMT",1},{"SR_FEE",1},{"SR_REFUNDED_CASH",1},{"SR_RETURN_AMT_INC_TAX",1},{"SR_REVERSED_CHARGE",1},{"SR_STORE_CREDIT",1},{"SR_RETURN_TAX",1});
+define _LIMIT=100;
+
+with customer_total_return as
+(select sr_customer_sk as ctr_customer_sk
+       ,sr_store_sk as ctr_store_sk
+       ,sum([AGG_FIELD]) as ctr_total_return
+from store_returns ,date_dim
+where sr_returned_date_sk = d_date_sk
+and d_year =[YEAR]
+group by sr_customer_sk
+,sr_store_sk)
+
+[_LIMITA] select [_LIMITB] c_customer_id
+from customer_total_return ctr1
+,store
+,customer
+where ctr1.ctr_total_return > (select avg(ctr_total_return)*1.2
+								from customer_total_return ctr2
+								where ctr1.ctr_store_sk = ctr2.ctr_store_sk)
+and s_store_sk = ctr1.ctr_store_sk
+and s_state = '[STATE]'
+and ctr1.ctr_customer_sk = c_customer_sk
+order by c_customer_id
+[_LIMITC];
+
+with customer_total_return as
+(select sr_customer_sk as ctr_customer_sk
+       ,sr_store_sk as ctr_store_sk
+       ,sum(SR_RETURN_AMT) as ctr_total_return
+from store_returns ,date_dim
+where sr_returned_date_sk = d_date_sk
+and d_year =1998
+group by sr_customer_sk
+,sr_store_sk;)
+-->
